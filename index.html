@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나라 수도 맞추기 게임</title>
+    <style>
+        .sjsj {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="sjsj">부흥고등학교 프롬포트</h1<>
+    <p>나라 수도 맞추기 게임에 오신 것을 환영합니다!</p>
+    <p>아래에 제시된 나라의 수도는 무엇일까요?</p>
+    <p id="country">이탈리아</p>
+    <input type="text" id="capital" placeholder="수도를 입력하세요">
+    <button onclick="checkCapital()">제출</button>
+    <p id="result"></p>
+
+    <script>
+        // 나라와 해당하는 수도 목록
+        const countries = {
+            "이탈리아": "로마",
+            "프랑스": "파리",
+            "독일": "베를린",
+            "일본": "도쿄",
+            "미국": "워싱턴 D.C."
+        };
+
+        // 수도를 맞추는 함수
+        function checkCapital() {
+            // 사용자 입력 값 가져오기
+            const country = document.getElementById('country').textContent;
+            const userCapital = document.getElementById('capital').value.trim();
+
+            // 정답 비교
+            if (userCapital.toLowerCase() === countries[country].toLowerCase()) {
+                document.getElementById('result').innerHTML = '정답입니다! 축하합니다!';
+            } else {
+                document.getElementById('result').innerHTML = '틀렸습니다. 다시 시도해보세요.';
+            }
+        }
+    </script>
+</body>
+</html>
